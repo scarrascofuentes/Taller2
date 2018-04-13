@@ -13,10 +13,10 @@ class EstadoTarea {
         $query = "SELECT * FROM estado_tarea WHERE estado_id = ?";
         $ps    = Config::$dbh->prepare($query);
         $res   = $ps->execute(array($estado_id));
-        $result = null;
+        $result = array();
         if($res) {
-            $result = $ps->fetch();
-            $result = fromRowToEstado($result);
+            $result = $ps->fetchAll();
+            $result = array_map([EstadoTarea::class, 'fromRowToEstado'], $result)[0];
         }
         return $result;
     }

@@ -2,7 +2,7 @@
 
 class TareaView {
 
-    public function render($tarea) { ?>
+    public function render($tarea, $estado) { ?>
         <html>
             <head>
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
@@ -31,7 +31,10 @@ class TareaView {
                                 <?php echo 'Vacio'; ?>
                             </td>
                             <td>
-                                <?php echo 'Vacio'; ?>
+                                <?php print_r ($estado->getNombre());
+                                
+                                
+                                ?>
                             </td>
                         </tr>
                      
