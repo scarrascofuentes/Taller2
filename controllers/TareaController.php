@@ -24,7 +24,7 @@ class TareaController {
 
     public function borrarTarea($id) {
         $user = $_SESSION["user"];
-        Tarea::borrarTarea($id);        
+        Tarea::borrarTarea($id, $user);        
         header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
     }
 

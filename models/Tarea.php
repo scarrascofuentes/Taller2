@@ -41,10 +41,12 @@ class Tarea {
       
     }
 
-    public static function borrarTarea($id) {
-        $query = "DELETE FROM tarea WHERE tarea_id = ?";
+    public static function borrarTarea($id, $user) {
+
+        $idUsuario = $user->getId();
+        $query = "DELETE FROM tarea WHERE tarea_id = ? AND usuario_id = ?";
         $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($id));
+        $res   = $ps->execute(array($id, $idUsuario));
       
     }
 
