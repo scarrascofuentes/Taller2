@@ -3,6 +3,7 @@
 require("models/Tarea.php");
 require("views/Tareas.view.php");
 require("views/Tarea.view.php");
+require("views/EditarTarea.view.php");
 
 class TareaController {
 
@@ -37,13 +38,13 @@ class TareaController {
 
     public function editarTarea($id) {
         $user = $_SESSION["user"];
-        $titulo    = $_POST["titulo"]; 
-        $descripcion    = $_POST["descripcion"]; 
-        $fecha_inicio    = $_POST["fecha_inicio"]; 
-        $estado_id    = $_POST["estado_id"]; 
-
-        Tarea::editarTarea($id, $user, $titulo, $descripcion, $fecha_inicio, $estado_id);        
-        header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
+        $tarea = Tarea::mostrarTarea($id); 
+       
+        
+        Tarea::editarTarea($id, $user);   
+        $editarTareaViews = new EditarTareaView();
+        echo $editarTareaViews->render($tarea, $user);     
+       
     }
 }
 ?>
