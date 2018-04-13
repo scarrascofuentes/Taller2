@@ -30,15 +30,13 @@ class TareaController {
     public function mostrarTarea($id) {
         $user = $_SESSION["user"];        
         $tarea = Tarea::mostrarTarea($id);  
-
-
-        //$estado = new EstadoTarea;
-        //$estado = Tarea:: getEstado();    
+        $estado = $tarea->getEstado();
+       
 
 
 
         $tareaViews = new TareaView();
-        echo $tareaViews->render($tarea);
+        echo $tareaViews->render($tarea, $estado);
     }
 }
 ?>
