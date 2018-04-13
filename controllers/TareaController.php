@@ -31,12 +31,19 @@ class TareaController {
         $user = $_SESSION["user"];        
         $tarea = Tarea::mostrarTarea($id);  
         $estado = $tarea->getEstado();
-       
-
-
-
         $tareaViews = new TareaView();
         echo $tareaViews->render($tarea, $estado);
+    }
+
+    public function editarTarea($id) {
+        $user = $_SESSION["user"];
+        $titulo    = $_POST["titulo"]; 
+        $descripcion    = $_POST["descripcion"]; 
+        $fecha_inicio    = $_POST["fecha_inicio"]; 
+        $estado_id    = $_POST["estado_id"]; 
+
+        Tarea::editarTarea($id, $user, $titulo, $descripcion, $fecha_inicio, $estado_id);        
+        header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
     }
 }
 ?>

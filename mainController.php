@@ -97,6 +97,13 @@ switch($path) {
         $controller->mostrarTarea($id);
         break;
 
+    case '/editarTarea':      
+        require_login(); 
+        $controller = new TareaController();        
+        $id    = $_GET["id"]; 
+        $controller->editarTarea($id);
+        break;
+
     /*
     case 'calendario':        
         break;

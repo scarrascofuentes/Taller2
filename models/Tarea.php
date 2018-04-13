@@ -48,6 +48,16 @@ class Tarea {
       
     }
 
+
+    public static function editarTarea($id, $user,$titulo, $descripcion, $fecha_inicio, $estado_id) {
+        $query = "UPDATE tarea SET titulo= ?, descripcion = ?, fecha_inicio = ?, estado_id=? WHERE tarea_id = ? AND usuario_id = ?";
+        $user_id = $user->getId();
+        $ps    = Config::$dbh->prepare($query);
+        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $user_id));
+
+      
+    }
+
     public static function mostrarTarea($id) {
         $query = "SELECT * FROM tarea WHERE tarea_id = ?";
         $ps    = Config::$dbh->prepare($query);
