@@ -39,11 +39,42 @@ class TareaController {
     public function editarTarea($id) {
         $user = $_SESSION["user"];
         $tarea = Tarea::mostrarTarea($id); 
+        $estados = EstadoTarea::getAll();
+
+        $editarTareaViews = new EditarTareaView();
+        echo $editarTareaViews->render($tarea, $user, $estados);  
+
+    }
+
+    public function actualizarTarea() {
+
+        $user = $_SESSION["user"];
+        
+        $usuario_id = $user->getId();
+
+        $id = $_POST["id"];
+        $titulo = $_POST["titulo"];
+        $descripcion = $_POST["descripcion"];
+        $estado_id = $_POST["estado_id"];
+        $fecha_inicio = "2018-03-03";
+        $tipo_id = null;
+
+        //echo $id." <br>";
+        //echo $titulo." <br>";
+        //echo $descripcion." <br>";
+        //echo $estado_id;
+
+
+        Tarea::actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id); 
+        header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
+
+
+
+
        
         
-        Tarea::editarTarea($id, $user);   
-        $editarTareaViews = new EditarTareaView();
-        echo $editarTareaViews->render($tarea, $user);     
+          
+   
        
     }
 }

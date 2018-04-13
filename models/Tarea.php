@@ -51,11 +51,10 @@ class Tarea {
     }
 
 
-    public static function editarTarea($id, $user) {
+    public static function actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id) {
         $query = "UPDATE tarea SET titulo= ?, descripcion = ?, fecha_inicio = ?, estado_id=? WHERE tarea_id = ? AND usuario_id = ?";
-        $user_id = $user->getId();
         $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $user_id));
+        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $usuario_id));
 
       
     }

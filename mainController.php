@@ -104,6 +104,11 @@ switch($path) {
         $controller->editarTarea($id);
         break;
 
+    case '/actualizarTarea':      
+        require_login(); 
+        $controller = new TareaController();         
+        $controller->actualizarTarea();
+        break;
     /*
     case 'calendario':        
         break;
