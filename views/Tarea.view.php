@@ -36,6 +36,14 @@ class TareaView {
                                 
                                 ?>
                             </td>
+                            <td>
+                                <button> <a href="<?php echo "/todolisto_mvc/mainController.php/editarTarea?id=" . $tarea->getId(); ?>">
+                                    Editar Tarea
+                                </a> </button>
+                                
+                                
+                        
+                            </td>
                         </tr>
                      
                 </table>

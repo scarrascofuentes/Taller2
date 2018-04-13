@@ -3,6 +3,7 @@
 require("models/Tarea.php");
 require("views/Tareas.view.php");
 require("views/Tarea.view.php");
+require("views/EditarTarea.view.php");
 
 class TareaController {
 
@@ -31,12 +32,19 @@ class TareaController {
         $user = $_SESSION["user"];        
         $tarea = Tarea::mostrarTarea($id);  
         $estado = $tarea->getEstado();
-       
-
-
-
         $tareaViews = new TareaView();
         echo $tareaViews->render($tarea, $estado);
+    }
+
+    public function editarTarea($id) {
+        $user = $_SESSION["user"];
+        $tarea = Tarea::mostrarTarea($id); 
+       
+        
+        Tarea::editarTarea($id, $user);   
+        $editarTareaViews = new EditarTareaView();
+        echo $editarTareaViews->render($tarea, $user);     
+       
     }
 }
 ?>
