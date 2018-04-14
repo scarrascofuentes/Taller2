@@ -22,14 +22,14 @@ class EditarTareaView {
 
                     <div>
                         <label>Titulo:</label><br>
-                        <input type="text" name="titulo" />
+                        <input type="text" name="titulo" placeholder= "<?php echo $tarea->getTitulo(); ?> " />
                     </div>
 
                     <br>
 
                     <div>
                         <label>Descripción:</label><br>
-                        <input type="text" name="descripcion" />
+                        <input type="text" name="descripcion" placeholder= "<?php echo $tarea->getDescripcion(); ?> "/>
                     </div>
 
                     <br>
@@ -48,8 +48,13 @@ class EditarTareaView {
 
                     <input type="submit" value="Enviar">
                 </form>
+                <br>
 
-
+                <button> <a href="<?php echo "/todolisto_mvc/mainController.php/tarea?id=" . $tarea->getId(); ?>">
+                                   Volver al detalle
+                         </a> 
+                </button>
+                                
         </html>
 
     <?php }

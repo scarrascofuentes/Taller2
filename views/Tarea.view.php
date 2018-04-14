@@ -28,7 +28,7 @@ class TareaView {
                                 <?php echo $tarea->getDescripcion(); ?>
                             </td>
                             <td>
-                                <?php echo 'Vacio'; ?>
+                                <?php echo '2018-03-03'; ?>
                             </td>
                             <td>
                                 <?php print_r ($estado->getNombre());
