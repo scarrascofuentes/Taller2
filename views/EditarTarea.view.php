@@ -2,31 +2,51 @@
 
 class EditarTareaView {
 
-    public function render($id, $user) { ?>
+    public function render($tarea, $user, $estados) { ?>
         <html>
             <head>
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
+
             </head>
             <body>   
                 <a href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>         
                 <h1>Todo Listo!</h1>
                 <h2>Editar Tarea</h2>
 
-               <form action="/my-handling-form-page" method="post">
-                    <div>
-                        <label for="titulo">Titulo:</label>
-                        <input type="text" id="titulo" />
-                    </div>
-                    <div>
-                        <label for="descripcion">Descripción</label>
-                        <input type="text" id="descripcion" />
-                    </div>
+                <form action= "/todolisto_mvc/mainController.php/actualizarTarea"  method="post" >
+                    
+                    
+                    <input type="hidden" name="id" value="<?php echo $tarea->getId();?>"> 
+
+                   
 
                     <div>
-                        <label for="estado_id">Estado</label>
-                        <input type="text" id="estado_id" />
+                        <label>Titulo:</label><br>
+                        <input type="text" name="titulo" />
                     </div>
-                    
+
+                    <br>
+
+                    <div>
+                        <label>Descripción:</label><br>
+                        <input type="text" name="descripcion" />
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <label>Estado:</label><br>
+                        <select name="estado_id">
+                                <option selected disabled>Estado Tarea</option>
+                                <?php foreach($estados as $estado) { ?>
+                                    <option value="<?php echo $estado->getId(); ?>"><?php echo $estado->getNombre(); ?></option>
+                                <?php } ?>
+                        </select>
+                    </div>
+
+                    <br>
+
+                    <input type="submit" value="Enviar">
                 </form>
 
 

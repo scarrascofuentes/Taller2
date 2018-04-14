@@ -41,19 +41,20 @@ class Tarea {
       
     }
 
-    public static function borrarTarea($id) {
-        $query = "DELETE FROM tarea WHERE tarea_id = ?";
+    public static function borrarTarea($id, $user) {
+
+        $idUsuario = $user->getId();
+        $query = "DELETE FROM tarea WHERE tarea_id = ? AND usuario_id = ?";
         $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($id));
+        $res   = $ps->execute(array($id, $idUsuario));
       
     }
 
 
-    public static function editarTarea($id, $user) {
+    public static function actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id) {
         $query = "UPDATE tarea SET titulo= ?, descripcion = ?, fecha_inicio = ?, estado_id=? WHERE tarea_id = ? AND usuario_id = ?";
-        $user_id = $user->getId();
         $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $user_id));
+        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $usuario_id));
 
       
     }
