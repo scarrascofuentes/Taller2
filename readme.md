@@ -43,3 +43,5 @@ Respecto a los datos iniciales en la base de datos:
   * Hay 2 usuarios ya creados: `Juanin`, que es un usuario normal, y `admin` que, sorprendentemente, es un administrador.
   * Hay estados  de tarea ya definidos. Estos valores pueden cambiar, en general al agregar nuevos valores de manera externa a la aplicación.
   * Hay roles de usuario ya definidos, y no se deben considerar roles adicionales.
+
+# Integrantes: Héctor Astorga - Samuel Carrasco 
