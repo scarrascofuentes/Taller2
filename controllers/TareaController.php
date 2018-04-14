@@ -59,12 +59,6 @@ class TareaController {
         $fecha_inicio = "2018-03-03";
         $tipo_id = null;
 
-        //echo $id." <br>";
-        //echo $titulo." <br>";
-        //echo $descripcion." <br>";
-        //echo $estado_id;
-
-
         Tarea::actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id); 
         header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
 

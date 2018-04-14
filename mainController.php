@@ -109,10 +109,6 @@ switch($path) {
         $controller = new TareaController();         
         $controller->actualizarTarea();
         break;
-    /*
-    case 'calendario':        
-        break;
-    */  
 
     default:
         header('HTTP/1.1 404 Not Found');        
