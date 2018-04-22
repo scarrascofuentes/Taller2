@@ -79,8 +79,9 @@ switch($path) {
         $controller = new TareaController();        
         $titulo    = $_POST["titulo"];
         $desc      = $_POST["descripcion"];
-        $estado_id = $_POST["estado_id"];        
-        $controller->agregarTarea($titulo, $desc, $estado_id);
+        $estado_id = $_POST["estado_id"];   
+        $tipo_id = $_POST["tipo_id"];     
+        $controller->agregarTarea($titulo, $desc, $estado_id, $tipo_id);
         break;
     
     case '/borrarTarea':
