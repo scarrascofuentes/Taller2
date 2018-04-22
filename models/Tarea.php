@@ -7,6 +7,7 @@ class Tarea {
     private $titulo;
     private $descripcion;    
     private $estado;
+    private $tipo;
     private $usuario;
 
     private static function fromRowToTarea($row) {
@@ -27,14 +28,14 @@ class Tarea {
         return $result;        
     }
 
-    public static function agregarTarea($titulo, $descripcion, $user_id, $estado_id) {
+    public static function agregarTarea($titulo, $descripcion, $user_id, $estado_id, $tipo_id) {
         $query = "INSERT INTO tarea (titulo, descripcion, usuario_id, tipo_id, estado_id, fecha_inicio) VALUES (?, ?, ?, ?, ?, ?)";
         $ps    = Config::$dbh->prepare($query);
         $res   = $ps->execute(array(
                         $titulo,
                         $descripcion,
                         $user_id,
-                        null,                        
+                        $tipo_id,                        
                         $estado_id,
                         "2018-03-03"
         ));
@@ -51,10 +52,11 @@ class Tarea {
     }
 
 
-    public static function actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id) {
-        $query = "UPDATE tarea SET titulo= ?, descripcion = ?, fecha_inicio = ?, estado_id=? WHERE tarea_id = ? AND usuario_id = ?";
+    public static function actualizarTarea($tarea_id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id) {
+        $query = "UPDATE tarea SET titulo= ?, descripcion = ?, fecha_inicio = ?, estado_id= ? , tipo_id = ? 
+                    WHERE tarea_id = ? AND usuario_id = ?";
         $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($titulo, $descripcion,$fecha_inicio, $estado_id, $id, $usuario_id));
+        $res   = $ps->execute(array($titulo, $descripcion, $fecha_inicio, $estado_id, $tipo_id, $tarea_id, $usuario_id));
 
       
     }
@@ -80,6 +82,7 @@ class Tarea {
         $this->titulo      = $result_row["titulo"];
         $this->descripcion = $result_row["descripcion"];        
         $this->estado      = $result_row["estado_id"];
+        $this->tipo        = $result_row["tipo_id"];
         $this->usuario     = $result_row["usuario_id"];        
     }
 
@@ -105,6 +108,10 @@ class Tarea {
     
     public function getEstado() {
         return EstadoTarea::getById($this->estado);
+    }
+
+    public function getTipo() {
+        return TipoTarea::getById($this->tipo);
     }
 }
 
