@@ -2,7 +2,7 @@
 
 class TareaView {
 
-    public function render($tarea, $estado) { ?>
+    public function render($tarea, $estado, $tipo) { ?>
         <html>
             <head>
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
@@ -18,6 +18,7 @@ class TareaView {
                             <th>Descripcion</th>
                             <th>Fecha de Inicio</th>
                             <th>Estado</th>
+                            <th>Tipo</th>
                         </tr>
                      
                         <tr>
@@ -31,17 +32,17 @@ class TareaView {
                                 <?php echo '2018-03-03'; ?>
                             </td>
                             <td>
-                                <?php print_r ($estado->getNombre());
-                                
-                                
-                                ?>
+                                <?php print_r ($estado->getNombre()); ?>
+                            </td>
+                            <td>
+                                <?php print_r ($tipo->getNombre()); ?>
                             </td>
                             <td>
                                 <button> <a href="<?php echo "/todolisto_mvc/mainController.php/editarTarea?id=" . $tarea->getId(); ?>">
                                     Editar Tarea
                                 </a> </button>
                                 
-                                
+                   
                         
                             </td>
                         </tr>

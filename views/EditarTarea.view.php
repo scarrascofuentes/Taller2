@@ -2,7 +2,7 @@
 
 class EditarTareaView {
 
-    public function render($tarea, $user, $estados) { ?>
+    public function render($tarea, $user, $estados, $tipos) { ?>
         <html>
             <head>
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
@@ -40,6 +40,16 @@ class EditarTareaView {
                                 <option selected disabled>Estado Tarea</option>
                                 <?php foreach($estados as $estado) { ?>
                                     <option value="<?php echo $estado->getId(); ?>"><?php echo $estado->getNombre(); ?></option>
+                                <?php } ?>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Tipo:</label><br>
+                        <select name="tipo_id">
+                                <option selected disabled>Tipo Tarea</option>
+                                <?php foreach($tipos as $tipo) { ?>
+                                    <option value="<?php echo $tipo->getId(); ?>"><?php echo $tipo->getNombre(); ?></option>
                                 <?php } ?>
                         </select>
                     </div>

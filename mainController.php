@@ -79,8 +79,9 @@ switch($path) {
         $controller = new TareaController();        
         $titulo    = $_POST["titulo"];
         $desc      = $_POST["descripcion"];
-        $estado_id = $_POST["estado_id"];        
-        $controller->agregarTarea($titulo, $desc, $estado_id);
+        $estado_id = $_POST["estado_id"];   
+        $tipo_id = $_POST["tipo_id"];     
+        $controller->agregarTarea($titulo, $desc, $estado_id, $tipo_id);
         break;
     
     case '/borrarTarea':
@@ -108,6 +109,12 @@ switch($path) {
         require_login(); 
         $controller = new TareaController();         
         $controller->actualizarTarea();
+        break;
+        
+    case '/tareasUsuarios':      
+        require_login(); 
+        $controller = new TareaController();         
+        $controller->tareasUsuarios();
         break;
 
     default:
