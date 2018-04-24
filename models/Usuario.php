@@ -32,7 +32,7 @@ class Usuario {
         $ps    = Config::$dbh->prepare($query);
         $res   = $ps->execute(array($usuario_id));
         
-        print $res;
+        //print $res;
 
         return $res;
 
