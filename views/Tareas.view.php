@@ -24,12 +24,15 @@ class TareasView {
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
                 <script src="js/bootstrap.min.js"></script>  
                 
-                <a href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>         
-                <h1>Todo Listo!</h1>
+                <div align = "right">
+                    <a class="badge badge-warning" href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>    
+                </div>
+
+                <h1 align = "center">Todo Listo!</h1>
                 <h2>Crear Tarea</h2>
 
 
-                    <form method="POST" action="/todolisto_mvc/mainController.php/nuevaTarea">
+                    <form method="POST" action="/todolisto_mvc/mainController.php/nuevaTarea" align = "center">
                         <input type="text" name="titulo" placeholder="Titulo" />
                         <input type="text" name="descripcion" placeholder="Descripcion" />                        
                         <select name="estado_id">
@@ -45,17 +48,24 @@ class TareasView {
                             <?php } ?>
                         </select>
 
-                        <input type="submit" value="Crear Tarea!" />
+                        <br><br>
+
+                        <input class="btn btn-primary" type="submit" value="Crear Tarea!" />
                     </form>
+                
+                <hr>
 
                 <h2>Mis tareas</h2>
-
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Titulo</th>
-                            <th>Descripcion</th>
-                            <th></th>
-                        </tr>
+                
+                <div align = "center">
+                    <table class="table table-striped" >
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripcion</th>
+                                <th></th>
+                            </tr>
+                        </thead>
                         <?php foreach($paramTareas as $tarea) { ?>
                         <tr>
                             <td>
@@ -65,16 +75,19 @@ class TareasView {
                             </td>
                             <td><?php echo $tarea->getDescripcion(); ?></td>
                             <td>
-                                <a href="<?php echo "/todolisto_mvc/mainController.php/borrarTarea?id=" . $tarea->getId(); ?>">
+                                <a class="badge badge-danger" href="<?php echo "/todolisto_mvc/mainController.php/borrarTarea?id=" . $tarea->getId(); ?>">
                                     Borrar
                                 </a>
                             </td>
                         </tr>
                         <?php } ?>
                     </table>
+                </div>
 
-                    <a href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
-
+                <div align = "center">
+                    <a class="badge badge-dark" href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
+                </div>
+                    
             </body>
         </html>
 
