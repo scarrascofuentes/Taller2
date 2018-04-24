@@ -55,7 +55,7 @@ class TareasView {
                 
                 <hr>
 
-                <h2>Mis tareas <button class= "btn btn-primary"> Calendario </button> </h2> 
+                <h2>Mis tareas</h2>
                 
                 <div align = "center">
                     <table class="table table-striped" >
