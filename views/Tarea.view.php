@@ -5,49 +5,41 @@ class TareaView {
     public function render($tarea, $estado, $tipo) { ?>
         <html>
             <head>
+
+                <!-- Required meta tags -->
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+                <!-- Bootstrap CSS -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">           
+                
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
             </head>
-            <body>   
-                <a href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>         
-                <h1>Todo Listo!</h1>
-                <h2>Detalle de Tarea</h2>
+            <body>  
 
-                <table style="width:50%"  border=1>
-                        <tr>
-                            <th>Titulo</th>
-                            <th>Descripcion</th>
-                            <th>Fecha de Inicio</th>
-                            <th>Estado</th>
-                            <th>Tipo</th>
-                        </tr>
-                     
-                        <tr>
-                            <td>
-                                <p> <?php echo $tarea->getTitulo();?> </p>
-                            </td>
-                            <td>
-                                <?php echo $tarea->getDescripcion(); ?>
-                            </td>
-                            <td>
-                                <?php echo '2018-03-03'; ?>
-                            </td>
-                            <td>
-                                <?php print_r ($estado->getNombre()); ?>
-                            </td>
-                            <td>
-                                <?php print_r ($tipo->getNombre()); ?>
-                            </td>
-                            <td>
-                                <button> <a href="<?php echo "/todolisto_mvc/mainController.php/editarTarea?id=" . $tarea->getId(); ?>">
-                                    Editar Tarea
-                                </a> </button>
-                                
-                   
-                        
-                            </td>
-                        </tr>
-                     
-                </table>
+                <div align = "right">
+                    <a class="badge badge-warning" href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>    
+                </div>    
+
+                <h1 align = "center">Todo Listo!</h1>
+                <h2 align = "center">Detalle de Tarea</h2>
+
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item"> <b> Titulo: </b> <?php echo $tarea->getTitulo();?>  </li>
+                        <li class="list-group-item"> <b> Descripción: </b> <?php echo $tarea->getDescripcion(); ?></li>
+                        <li class="list-group-item"> <b> Estado: </b> <?php print_r ($estado->getNombre()); ?></li>
+                        <li class="list-group-item"> <b> Tipo: </b> <?php print_r ($tipo->getNombre()); ?></li>
+                    </ul>
+                </div>
+
+                <br>
+
+                <div align = "center">
+                    <button class="btn btn-light"> 
+                        <a href="<?php echo "/todolisto_mvc/mainController.php/editarTarea?id=" . $tarea->getId(); ?>">Editar Tarea</a> 
+                    </button>
+                </div>
 
 
         </html>
