@@ -84,9 +84,14 @@ class TareasView {
                     </table>
                 </div>
 
-                <div align = "center">
-                    <a class="badge badge-dark" href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
-                </div>
+                <?php $user = $_SESSION["user"]; ?>
+
+                <?php if($user->esAdministrador()):  ?>           
+                    <div align = "center">
+                        <a class="badge badge-dark" href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
+                    </div> 
+                <?php endif; ?>
+
                     
             </body>
         </html>

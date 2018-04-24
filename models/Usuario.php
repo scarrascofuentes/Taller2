@@ -27,17 +27,24 @@ class Usuario {
     
     public function getCantidadTareas() {
 
-        $usuario_id = $this->id;
-        $query = "SELECT COUNT(*) FROM tarea WHERE usuario_id = ?";
-        $ps    = Config::$dbh->prepare($query);
-        $res   = $ps->execute(array($usuario_id));
         
-        print $res;
+        $tareas = array();
+        $tareas = Tarea::getAllUserTareas($this);
+        $cantidad = count($tareas);
 
-        return $res;
-
+        return $cantidad;
 
       
+    }
+
+    public function esAdministrador() {
+
+        $rol = $this->getRol();
+
+        if($rol==1)
+        {
+            return true;
+        }
     }
 
     function __construct($result_row) {
@@ -60,7 +67,7 @@ class Usuario {
     }
 
     public function getRol() {
-        return $this->nombre;
+        return $this->rol;
     }
 
     public static function findByUsername($username) {
