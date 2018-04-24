@@ -3,14 +3,31 @@
 class TareasView {
 
     public function render($paramTareas, $estados , $tipos) { ?>
-        <html>
-            <head>
+        <!doctype html>
+        <html lang="en">
+
+                <!-- Required meta tags -->
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+                <!-- Bootstrap CSS -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                
+
                 <title>Todo Listo! / <?php echo $_SESSION["username"];?></title>
             </head>
-            <body>   
+            <body> 
+
+                <!-- Optional JavaScript -->
+                <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                <script src="js/bootstrap.min.js"></script>  
+                
                 <a href="/todolisto_mvc/mainController.php/logout">Cerrar Sesión</a>         
                 <h1>Todo Listo!</h1>
                 <h2>Crear Tarea</h2>
+
 
                     <form method="POST" action="/todolisto_mvc/mainController.php/nuevaTarea">
                         <input type="text" name="titulo" placeholder="Titulo" />
@@ -33,7 +50,7 @@ class TareasView {
 
                 <h2>Mis tareas</h2>
 
-                    <table>
+                    <table class="table table-striped">
                         <tr>
                             <th>Titulo</th>
                             <th>Descripcion</th>
@@ -55,6 +72,8 @@ class TareasView {
                         </tr>
                         <?php } ?>
                     </table>
+
+                    <a href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
 
             </body>
         </html>

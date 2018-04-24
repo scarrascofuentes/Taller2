@@ -5,6 +5,7 @@ require("models/TipoTarea.php");
 require("views/Tareas.view.php");
 require("views/Tarea.view.php");
 require("views/EditarTarea.view.php");
+require("views/Admin.view.php");
 
 class TareaController {
 
@@ -66,6 +67,16 @@ class TareaController {
         Tarea::actualizarTarea($id, $usuario_id, $titulo, $descripcion, $estado_id, $fecha_inicio, $tipo_id); 
         header('Location: ' . '/todolisto_mvc/mainController.php/tareas');
        
+    }
+
+    public function tareasUsuarios() {
+        $user = $_SESSION["user"];
+        $usuariosNormales = Usuario::getUsuariosNormales();
+
+
+        $adminViews = new AdminView();
+        echo $adminViews->render($usuariosNormales);  
+
     }
 }
 ?>
