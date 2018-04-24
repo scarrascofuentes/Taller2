@@ -37,7 +37,15 @@ class Usuario {
       
     }
 
+    public function esAdministrador() {
 
+        $rol = $this->getRol();
+
+        if($rol==1)
+        {
+            return true;
+        }
+    }
 
     function __construct($result_row) {
         $this->id     = $result_row["usuario_id"];
