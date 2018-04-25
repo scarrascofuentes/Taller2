@@ -33,11 +33,13 @@ Respecto a los modelos se provee una base de datos `TODOLISTO.sql`, lista para s
 
   * Se tienen las clases `Usuario`, `Tarea`, `Rol`, y `EstadoTarea`  
   * El `mainController.php` se conecta a la base de datos, y almacena el _handle_ en una propiedad estática de la clase `Config`
-  * Las clases mencionadas hacen uso de la conexión a la base de datos para buscar y crear según corresponda. Estudie bien la implementación de `Usuario` y `Tarea` para ayudarse en los puntos a desarrollar.
+  * Las clases mencionadas hacen uso de la conexión a la base de datos para buscar y crear según corresponda. 
 
 Respecto a las vistas:
 
-  * Se proveen cuatro vistas: `Login.view.php` y `Tareas.view.php`, `Tarea.view.php`, `EditarTarea.view.php` .
+  * Se proveen seis vistas: `Login.view.php` y `Tareas.view.php`, `Tarea.view.php`, `EditarTarea.view.php`, `calendar.view.php` y `Admin.view.php` .
+  * Dentro de vistas hay una carpeta resources con archivos Javascript y CSS. Esto incluye Full Calendar. 
+
 
 
 Respecto a los datos iniciales en la base de datos:
