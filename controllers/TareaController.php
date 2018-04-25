@@ -6,6 +6,7 @@ require("views/Tareas.view.php");
 require("views/Tarea.view.php");
 require("views/EditarTarea.view.php");
 require("views/Admin.view.php");
+require("views/Calendar.view.php");
 
 class TareaController {
 
@@ -17,6 +18,14 @@ class TareaController {
 
         $tareasViews = new TareasView();
         echo $tareasViews->render($tareas, $estados, $tipos);
+    }
+
+    public function tareas_calendario(){
+        $user = $_SESSION["user"];        
+        $tareas = Tarea::getAllUserTareas($user);        
+      
+        $calendarViews = new CalendarView();
+        echo $calendarViews->render($tareas);
     }
     
     public function agregarTarea($titulo, $desc, $estado_id, $tipo_id) {
