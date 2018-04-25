@@ -84,6 +84,7 @@ class Tarea {
         $this->descripcion = $result_row["descripcion"];        
         $this->estado      = $result_row["estado_id"];
         $this->tipo        = $result_row["tipo_id"];
+        $this->fecha_inicio= $result_row["fecha_inicio"];
         $this->usuario     = $result_row["usuario_id"];        
     }
 
@@ -97,6 +98,9 @@ class Tarea {
 
     public function setTitulo($titulo) {
         $this->titulo = titulo;
+    }
+    public function setFecha($fecha_inicio) {
+        $this->fecha_inicio = fecha_inicio;
     }
 
     public function getFecha() {
