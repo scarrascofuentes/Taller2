@@ -17,11 +17,14 @@ Respecto al funcionamiento y las Rutas:
   * la ruta principal es http://localhost/todolisto_mvc/mainController.php/index en la cual se encuentra el login
     * Los usuarios predefinidos son admin y juanin (ambos sin password)
   * Al ingresar se redirecciona a la ruta http://localhost/todolisto_mvc/mainController.php/tareas en la cual vemos el listado de las tareas existentes y tambíen podemos crear más, indicando un título, una descripción y un estado.
+  * Al ingresar como admin se puede ver la cantidad de tareas de los demás usuario. Se llevará es esta ruta: http://localhost/todolisto_mvc/mainController.php/tareasUsuarios
+  * Dentro del listado de tareas existe un botón para ver el calendario con las tareas. Nos llevará la ruta: http://localhost/todolisto_mvc/mainController.php/calendario
   * En la tabla, al costado de la tarea, existe un botón dedicado para eliminarla.
   * Al pinchar sobre el hipervinculo en el título de una tarea, se llevará al detalle en una ruta de este tipo: http://localhost/todolisto_mvc/mainController.php/tarea?id= idTarea
   * Dentro del detalle de una tarea, existe un botón dedicado para editarla y cambiar sus atributos (menos el id). La ruta es de tipo: http://localhost/todolisto_mvc/mainController.php/editarTarea?id=idTarea
   * En la vista para modificar se encuentra un formulario con placeholders con los valores actuales de la tarea. Se dispone de un botón para ir atrás hacia el detalle.
   * Por último, existe un hipervinculo para cerrar la sesión.
+ 
 
 Respecto a los controladores:
 
@@ -31,7 +34,7 @@ Respecto a los controladores:
 
 Respecto a los modelos se provee una base de datos `TODOLISTO.sql`, lista para ser importada en MySQL,  para soportar los modelos de la aplicación, en base a esto:
 
-  * Se tienen las clases `Usuario`, `Tarea`, `Rol`, y `EstadoTarea`  
+  * Se tienen las clases `Usuario`, `Tarea`, `Rol`, `EstadoTarea` y `TipoTarea`
   * El `mainController.php` se conecta a la base de datos, y almacena el _handle_ en una propiedad estática de la clase `Config`
   * Las clases mencionadas hacen uso de la conexión a la base de datos para buscar y crear según corresponda. 
 
