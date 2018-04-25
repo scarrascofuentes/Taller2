@@ -116,10 +116,11 @@ switch($path) {
         $controller = new TareaController();         
         $controller->tareasUsuarios();
         break;
-    case '/calendarioUsuarios':      
+        
+    case '/calendario':      
         require_login(); 
-        $controller = new TareaController();         
-        $controller->tareasUsuarios();
+        $controller = new TareaController();
+        $controller->tareas_calendario();
         break;
 
     default:

@@ -5,7 +5,8 @@ require("EstadoTarea.php");
 class Tarea {
     private $id;
     private $titulo;
-    private $descripcion;    
+    private $descripcion;   
+    private $fecha_inicio; 
     private $estado;
     private $tipo;
     private $usuario;
@@ -96,6 +97,10 @@ class Tarea {
 
     public function setTitulo($titulo) {
         $this->titulo = titulo;
+    }
+
+    public function getFecha() {
+        return $this->fecha_inicio;
     }
 
     public function getDescripcion() {

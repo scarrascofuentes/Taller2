@@ -6,6 +6,8 @@ class TareasView {
         <!doctype html>
         <html lang="en">
 
+              <head>
+
                 <!-- Required meta tags -->
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -65,10 +67,7 @@ class TareasView {
                                 <th>Titulo</th>
                                 <th>Descripcion</th>
                                 <th>  
-                                   
-                                        <button class="btn btn-primary"> Ver Calendario </button>
-                                
-                                  
+                                     <a href="/todolisto_mvc/mainController.php/calendario">   <button class="btn btn-primary"> Ver Calendario </button>     </a> 
                                 </th>
                             </tr>
                         </thead>
