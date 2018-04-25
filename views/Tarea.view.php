@@ -41,6 +41,15 @@ class TareaView {
                     </button>
                 </div>
 
+                  <br>
+                  <div>
+                    <button> <a href="todolisto_mvc/mainController.php/tareas">
+                                        Volver a la vista tareas
+                                </a> 
+                        </button>
+                  </div>
+
+                   
 
         </html>
 

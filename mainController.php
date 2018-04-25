@@ -116,6 +116,12 @@ switch($path) {
         $controller = new TareaController();         
         $controller->tareasUsuarios();
         break;
+        
+    case '/calendario':      
+        require_login(); 
+        $controller = new TareaController();
+        $controller->tareas_calendario();
+        break;
 
     default:
         header('HTTP/1.1 404 Not Found');        
