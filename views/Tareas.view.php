@@ -56,6 +56,7 @@ class TareasView {
                 <hr>
 
                 <h2>Mis tareas</h2>
+               
                 
                 <div align = "center">
                     <table class="table table-striped" >
@@ -63,7 +64,12 @@ class TareasView {
                             <tr>
                                 <th>Titulo</th>
                                 <th>Descripcion</th>
-                                <th></th>
+                                <th>  
+                                   
+                                        <button class="btn btn-primary"> Ver Calendario </button>
+                                
+                                  
+                                </th>
                             </tr>
                         </thead>
                         <?php foreach($paramTareas as $tarea) { ?>
@@ -85,7 +91,6 @@ class TareasView {
                 </div>
 
                 <?php $user = $_SESSION["user"]; ?>
-
                 <?php if($user->esAdministrador()):  ?>           
                     <div align = "center">
                         <a class="badge badge-dark" href="/todolisto_mvc/mainController.php/tareasUsuarios">Tareas de usuarios</a> 
