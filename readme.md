@@ -10,6 +10,8 @@ Respecto a la instalación:
   * Dentro de la nueva base de datos vacía, importar el archivo SQL "TODOLISTO.sql" para cargar las tablas y datos.
   * Asegurarse que el código fuente del taller de encuentre en la carpeta htdocs de Xampp.
 
+  # IMPORTANTE Ejecutar con Chrome o Edge.
+
 Respecto al funcionamiento y las Rutas: 
 
   * la ruta principal es http://localhost/todolisto_mvc/mainController.php/index en la cual se encuentra el login
